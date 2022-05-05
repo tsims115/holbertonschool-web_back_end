@@ -5,21 +5,21 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   return [
     await signUpUser(firstName, lastName)
       .then((response) => ({
-        status: 'success',
+        status: 'fulfilled',
         response,
       }))
       .catch((response) => ({
-        status: 'unsuccessful',
-        value: response.ToString(),
+        status: 'rejected',
+        value: response,
       })),
     await uploadPhoto(fileName)
       .then((response) => ({
-        status: 'success',
+        status: 'fulfilled',
         response,
       }))
       .catch((response) => ({
-        status: 'unsuccessful',
-        value: response.ToString(),
+        status: 'rejected',
+        value: response,
       })),
   ];
 }
