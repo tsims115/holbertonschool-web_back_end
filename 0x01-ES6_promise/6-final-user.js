@@ -10,6 +10,6 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
     ).then((results) => results);
     return settlesPromises;
   }
-
-  return promiseFunct();
+  const p = promiseFunct();
+  return p;
 }
