@@ -4,22 +4,22 @@ import uploadPhoto from './5-photo-reject';
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   return [
     await signUpUser(firstName, lastName)
-      .then( (response) => ({
+      .then((response) => ({
         status: 'success',
-        response
+        response,
       }))
-      .catch( (response) => ({
+      .catch((response) => ({
         status: 'unsuccessful',
-        value: response
+        value: response,
       })),
     await uploadPhoto(fileName)
-      .then( (response) => ({
+      .then((response) => ({
         status: 'success',
-        response
+        response,
       }))
-      .catch( (response) => ({
+      .catch((response) => ({
         status: 'unsuccessful',
-        value: response
-      }))
-  ]
+        value: response,
+      })),
+  ];
 }
