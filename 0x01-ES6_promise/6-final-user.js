@@ -3,5 +3,5 @@ import uploadPhoto from './5-photo-reject';
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   uploadPhoto(fileName);
-  return await signUpUser(firstName, lastName);
+  return [await signUpUser(firstName, lastName)];
 }
