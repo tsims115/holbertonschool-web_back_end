@@ -10,7 +10,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
       }))
       .catch((response) => ({
         status: 'rejected',
-        value: response,
+        value: response.toString(),
       })),
     await uploadPhoto(fileName)
       .then((response) => ({
@@ -19,7 +19,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
       }))
       .catch((response) => ({
         status: 'rejected',
-        value: response,
+        value: response.toString(),
       })),
   ];
 }
