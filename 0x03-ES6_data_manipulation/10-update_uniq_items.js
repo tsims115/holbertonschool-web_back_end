@@ -1,14 +1,11 @@
 export default function updateUniqueItems(map) {
-  if (typeof map !== 'map') {
+  console.log();
+  if (map.constructor.name !== 'Map') {
     throw new Error('Cannot process');
   }
   map.forEach((v, k) => {
     if (v === 1) {
-      try {
-        map.set(k, 100);
-      } catch (e) {
-        throw new Error('Cannot process');
-      }
+      map.set(k, 100);
     }
   });
 }
