@@ -8,4 +8,5 @@ ttypes = Union[str, float]
 
 
 def to_kv(k: str, v: itypes) -> Tuple[str, float]:
+    """string and int/float Tuple"""
     return (k, v * v)
