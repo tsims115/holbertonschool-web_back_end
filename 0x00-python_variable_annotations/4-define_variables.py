@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# defines annotations
+"""defines annotations"""
+
 
 a: int
 pi: float
