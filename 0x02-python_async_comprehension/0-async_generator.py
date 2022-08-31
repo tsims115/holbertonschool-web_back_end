@@ -4,6 +4,7 @@ from random import uniform
 from typing import Generator
 import asyncio
 
+
 async def async_generator() -> Generator[float, None, None]:
     """ async generator """
     for i in range(10):
