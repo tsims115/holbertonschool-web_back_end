@@ -3,7 +3,7 @@
 from random import uniform
 import asyncio
 
-async def async_generator() -> float:
+async def async_generator():
     """ async generator """
     for i in range(10):
         await asyncio.sleep(1)
