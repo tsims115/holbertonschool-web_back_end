@@ -7,4 +7,4 @@ async_generator = __import__('0-async_generator').async_generator
 
 async def async_comprehension() -> List[float]:
     """ collects to random numbers using the asyunc_generator """
-    return [item for item in async_generator()]
+    return [item async for item in async_generator()]
