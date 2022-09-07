@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """creates FIFO class that inherits from BaseCaching"""
 
-BaseCaching = __import__('baseCaching').BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
