@@ -5,12 +5,11 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """LRU Class"""
+    """LRU Class based on LRU Cache"""
 
     def __init__(self):
         """init method calls super"""
         super().__init__()
-        self.last = None
         self.cnt = 0
         self.lru = {}
 
