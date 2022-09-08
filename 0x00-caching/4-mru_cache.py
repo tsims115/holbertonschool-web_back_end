@@ -32,6 +32,5 @@ class MRUCache(BaseCaching):
         if key is None:
             return None
         if key in self.cache_data:
-            print("I AM HERE")
             self.mru = key
             return self.cache_data[key]
