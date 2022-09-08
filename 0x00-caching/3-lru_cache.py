@@ -19,14 +19,13 @@ class LRUCache(BaseCaching):
             return None
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             # find the LRU entry
-            old_key = min(self.lru.keys(), key=lambda k:self.lru[k])
+            old_key = min(self.lru.keys(), key=lambda k: self.lru[k])
             self.cache_data.pop(old_key)
             self.lru.pop(old_key)
             print("DISCARD: " + old_key)
         self.cache_data[key] = item
         self.lru[key] = self.cnt
         self.cnt += 1
-        
 
     def get(self, key):
         """Get an item by key"""
