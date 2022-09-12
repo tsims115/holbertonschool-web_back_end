@@ -4,6 +4,8 @@ import csv
 import math
 from typing import List, Tuple, Dict, Union, Optional
 
+hyper_type = Dict[str, Union[int, List[str]]]
+
 
 def index_range(page: int, page_size: int) -> Tuple[int]:
     """index range of pages top return"""
@@ -38,7 +40,7 @@ class Server:
         rang = index_range(page, page_size)
         return self.dataset()[rang[0]: rang[1]]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[int, List[str]]]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> hyper_type:
         """Returns a dictionary"""
         rows = self.get_page(page, page_size)
         next_page = page + 1
