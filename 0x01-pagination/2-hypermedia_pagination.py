@@ -46,12 +46,12 @@ class Server:
         if self.get_page(page + 1, page_size) == []:
             next_page = None
         if prev_page <= 0:
-            next_page = None
+            prev_page = None
         return {
             'page_size': len(rows),
             'page': page,
             'data': rows,
             'next_page': next_page,
-            'prev_page': page - 1,
+            'prev_page': prev_page,
             'total_pages': math.ceil(len(self.dataset()) / page_size)
         }
