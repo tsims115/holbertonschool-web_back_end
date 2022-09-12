@@ -45,7 +45,7 @@ class Server:
         prev_page = page - 1
         if self.get_page(page + 1, page_size) == []:
             next_page = None
-        if self.get_page(page - 1, page_size) == [] or prev_page <= 0:
+        if prev_page <= 0:
             next_page = None
         return {
             'page_size': len(rows),
