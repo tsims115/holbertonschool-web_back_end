@@ -30,11 +30,11 @@ class RedactingFormatter(logging.Formatter):
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """ get db connection """
-    connection = mysql.connector.connect(host=os.getenv('PERSONAL_DATA_DB_HOST'),
-                                         database=os.getenv('PERSONAL_DATA_DB_NAME'),
-                                         user=os.getenv('PERSONAL_DATA_DB_USERNAME'),
-                                         password=os.getenv('PERSONAL_DATA_DB_PASSWORD'))
-    return connection
+    c = mysql.connector.connect(host=os.getenv('PERSONAL_DATA_DB_HOST'),
+                                database=os.getenv('PERSONAL_DATA_DB_NAME'),
+                                user=os.getenv('PERSONAL_DATA_DB_USERNAME'),
+                                password=os.getenv('PERSONAL_DATA_DB_PASSWORD'))
+    return c
 
 
 def get_logger() -> logging.Logger:
