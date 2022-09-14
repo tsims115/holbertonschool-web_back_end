@@ -3,6 +3,8 @@
 from typing import List
 import re
 import logging
+import os
+import mysql.connector
 
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
@@ -24,6 +26,14 @@ class RedactingFormatter(logging.Formatter):
         m = filter_datum(self.f, self.REDACTION, record.msg, self.SEPARATOR)
         record.msg = m
         return logging.Formatter(self.FORMAT).format(record)
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """ get db connection """
+    connection = mysql.connector.connect(host='PERSONAL_DATA_DB_HOST',
+                                         database='Electronics',
+                                         user='PERSONAL_DATA_DB_USERNAME',
+                                         password='pynative@#29')
 
 
 def get_logger() -> logging.Logger:
