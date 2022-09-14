@@ -28,6 +28,5 @@ class RedactingFormatter(logging.Formatter):
 def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
     """Filters and rerturns obfuscated data"""
     for f in fields:
-        tmp=re.split(separator,message[re.search(f,message).span()[1]+1:])
-        message = re.sub(tmp[0], redaction, message)
+        message = re.sub(f"{f}=(.*?);", f"{f}={redaction};", message)
     return message
