@@ -29,6 +29,7 @@ def get_logger() -> logging.Logger:
     """returns a Logger object"""
     logger = logging.getLogger('user_data')
     logger.setLevel(logging.INFO)
+    logging.propagate = False
     logging.StreamHandler = logging.StreamHandler()
     return logger
 
