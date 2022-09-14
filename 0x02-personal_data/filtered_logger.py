@@ -15,11 +15,11 @@ class RedactingFormatter(logging.Formatter):
 
     def __init__(self, fields: List[str]):
         super(RedactingFormatter, self).__init__(self.FORMAT)
-        self.fields = fields
+        self.f = fields
 
     def format(self, record: logging.LogRecord) -> str:
         """Filters log and formats it"""
-        m=filter_datum(self.fields, self.REDACTION, record.msg, self.SEPARATOR)
+        m = filter_datum(self.f, self.REDACTION, record.msg, self.SEPARATOR)
         record.msg = '; '.join(m.split(';'))
         formatter = logging.Formatter(self.FORMAT)
         return formatter.format(record)
