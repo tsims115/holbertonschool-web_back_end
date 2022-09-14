@@ -25,7 +25,8 @@ class RedactingFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-def filter_datum(fields: List[str], redaction: str, message: str,separator: str) -> str:
+def filter_datum(fields: List[str], redaction: str, message: str,
+separator: str) -> str:
     """Filters and rerturns obfuscated data"""
     s = separator
     for f in fields:
