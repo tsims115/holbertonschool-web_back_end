@@ -19,13 +19,13 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         """Filters log and formats it"""
-        record.msg = filter_datum(self.fields, self.REDACTION, record.msg, self.SEPARATOR)
-        record.msg = '; '.join(record.msg.split(';'))
+        m=filter_datum(self.fields, self.REDACTION, record.msg, self.SEPARATOR)
+        record.msg = '; '.join(m.split(';'))
         formatter = logging.Formatter(self.FORMAT)
         return formatter.format(record)
 
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
+def filter_datum(fields: List[str], redaction: str, message: str,separator: str) -> str:
     """Filters and rerturns obfuscated data"""
     s = separator
     for f in fields:
