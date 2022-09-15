@@ -3,7 +3,7 @@
 encryption
 """
 import bcrypt
- 
+
 
 def hash_password(password: str) -> bytes:
     """hashes password"""
