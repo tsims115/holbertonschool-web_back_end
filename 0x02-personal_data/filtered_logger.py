@@ -57,3 +57,20 @@ def filter_datum(fields: List[str], redaction: str, message: str,
     for f in fields:
         message = re.sub(f"{f}=(.*?){s}", f"{f}={redaction}{s}", message)
     return message
+
+
+def main():
+    """Main function"""
+    db = get_db()
+    logger = get_logger()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users;")
+    for row in cursor:
+        tlist = row.items()
+        fdata = "; ".join(f"{tup[0]}={tup[1]}" for tup in tlist)
+        logger.info(fdata)
+    cursor.close()
+    db.close()
+
+if __name__ == '__main__':
+    main()
