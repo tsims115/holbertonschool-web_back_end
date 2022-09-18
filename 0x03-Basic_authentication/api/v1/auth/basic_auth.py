@@ -4,5 +4,5 @@ from api.v1.auth.auth import Auth
 
 
 class BasicAuth(Auth):
-    """Basic auth class"""
-    
+    """Basic auth class that is Nothing for now"""
+
