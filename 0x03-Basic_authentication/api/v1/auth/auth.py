@@ -6,7 +6,7 @@ import re
 
 
 class Auth:
-    """ Auth class """
+    """ Auth class that includes auth methods"""
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """ checks the current list of paths """
@@ -27,5 +27,5 @@ class Auth:
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """Implement later"""
+        """Implement later and is empty for now"""
         return None
