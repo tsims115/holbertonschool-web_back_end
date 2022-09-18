@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from api.v1.auth.auth import Auth
-"""BasicAuth class inherits from Auth"""
+"""BasicAuth class inherits from Auth and is not made"""
 
 
 class BasicAuth(Auth):
