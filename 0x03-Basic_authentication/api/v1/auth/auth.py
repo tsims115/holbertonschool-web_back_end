@@ -4,6 +4,7 @@ from flask import request
 from typing import TypeVar, List
 import re
 
+
 class Auth:
     """ Auth class """
 
