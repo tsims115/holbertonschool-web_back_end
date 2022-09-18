@@ -22,9 +22,9 @@ class Auth:
         """checks for Authorization header key"""
         if request is None:
             return None
-        # Must implment header check later
-        print(request)
-        return request
+        if request.headers.has_key('Authorization'):
+            return request.headers['Authorization']
+        return None
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Implement later"""
