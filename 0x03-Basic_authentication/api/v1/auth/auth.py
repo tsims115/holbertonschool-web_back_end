@@ -22,7 +22,7 @@ class Auth:
         """checks for Authorization header key"""
         if request is None:
             return None
-        if request.headers.has_key('Authorization'):
+        if 'Authorization' in request.headers:
             return request.headers['Authorization']
         return None
 

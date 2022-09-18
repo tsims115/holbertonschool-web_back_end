@@ -46,11 +46,12 @@ def before_request():
     if auth is None:
         return
     if not auth.require_auth(request.path, p_list):
-        return 
-    if auth.authorization_header(request) == None:
+        return
+    if auth.authorization_header(request) is None:
         abort(401)
-    if auth.current_user(request) == None:
+    if auth.current_user(request) is None:
         abort(403)
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
