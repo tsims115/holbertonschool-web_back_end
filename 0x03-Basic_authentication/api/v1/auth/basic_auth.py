@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """basic auth module None for now"""
 from api.v1.auth.auth import Auth
+from base64 import b64decode, binascii
 
 
 class BasicAuth(Auth):
@@ -16,3 +17,16 @@ class BasicAuth(Auth):
         if "Basic " in authorization_header:
             return authorization_header[6:]
         return None
+
+    def decode_base64_authorization_header(self,
+                                           base64_authorization_header:
+                                           str) -> str:
+        """ decodes base64 """
+        if base64_authorization_header is None:
+            return None
+        if type(base64_authorization_header) is not str:
+            return None
+        try:
+            return b64decode(base64_authorization_header).decode('utf-8')
+        except binascii.Error:
+            return None
