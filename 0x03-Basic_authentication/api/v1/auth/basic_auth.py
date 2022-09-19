@@ -2,6 +2,8 @@
 """basic auth module None for now"""
 from api.v1.auth.auth import Auth
 from base64 import b64decode, binascii
+from typing import TypeVar
+
 
 
 class BasicAuth(Auth):
@@ -44,3 +46,19 @@ class BasicAuth(Auth):
         dec = decoded_base64_authorization_header.split(':')
         tup_dec = (dec[0], dec[1])
         return tup_dec
+
+    def user_object_from_credentials(self,
+                                     user_email: str,
+                                     user_pwd: str) -> TypeVar('User'):
+        """returns User object based on email and password"""
+        from models.user import User
+        if user_email is None or type(user_email) is not str:
+            return None
+        if user_pwd is None or type(user_pwd) is not str:
+            return None
+        d = {'email': user_email}
+        u = User.search(d)
+        if u is not None and u != []:
+            if u[0].is_valid_password(user_pwd):
+                return u[0]
+        return None
