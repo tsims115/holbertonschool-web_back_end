@@ -61,7 +61,7 @@ class BasicAuth(Auth):
             if u is not None or u != []:
                 if u[0].is_valid_password(user_pwd):
                     return u[0]
-        except KeyError:
+        except Exception:
             return None
 
     def current_user(self, request=None) -> TypeVar('User'):
