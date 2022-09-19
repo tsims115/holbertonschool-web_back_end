@@ -5,7 +5,6 @@ from base64 import b64decode, binascii
 from typing import TypeVar
 
 
-
 class BasicAuth(Auth):
     """BasicAuth Class that is None for now"""
 
