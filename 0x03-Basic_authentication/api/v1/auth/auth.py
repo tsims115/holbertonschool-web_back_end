@@ -27,5 +27,5 @@ class Auth:
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """Implement later and is empty for now"""
+        """Implement later in BasicAuth"""
         return None

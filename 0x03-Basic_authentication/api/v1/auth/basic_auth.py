@@ -29,7 +29,7 @@ class BasicAuth(Auth):
             return None
         try:
             return b64decode(base64_authorization_header).decode('utf-8')
-        except binascii.Error:
+        except Exception:
             return None
 
     def extract_user_credentials(self,
@@ -63,3 +63,11 @@ class BasicAuth(Auth):
                     return u[0]
         except KeyError:
             return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """overloads Auth and retrieves User"""
+        header = self.authorization_header(request)
+        b64 = self.extract_base64_authorization_header(header)
+        db64 = self.decode_base64_authorization_header(b64)
+        user_cred = self.extract_user_credentials(db64)
+        return self.user_object_from_credentials(user_cred[0], user_cred[1])
