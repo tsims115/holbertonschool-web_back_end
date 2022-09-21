@@ -30,7 +30,7 @@ class Auth:
     def current_user(self, request=None) -> TypeVar('User'):
         """Implement later in BasicAuth"""
         return None
-    
+
     def session_cookie(self, request=None):
         """Returns the session cookie value of request"""
         if request is None:
@@ -41,4 +41,3 @@ class Auth:
             cookies = cookies.split("=")
             if cookies[0] == session_name:
                 return cookies[1]
-        
