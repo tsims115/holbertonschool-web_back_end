@@ -17,7 +17,7 @@ def simple() -> str:
     Return:
       - Simple Message
     """
-    return flask.jsonify({"message": "Bienvenue"}), 200
+    return jsonify({"message": "Bienvenue"}), 200
 
 
 if __name__ == "__main__":
