@@ -83,6 +83,19 @@ def get_reset_password_token():
     return jsonify({"email": email, "reset_token": token})
 
 
+@app.route('/reset_password', methods=['PUT'], strict_slashes=False)
+def update_password():
+    """get reset_token"""
+    email = request.form[list(request.form)[0]]
+    reset_token = request.form[list(request.form)[1]]
+    new_passwd = request.form[list(request.form)[2]]
+    try:
+        AUTH.update_password(reset_token, new_passwd)
+    except ValueError:
+        abort(403)
+    return jsonify({"email": email, "message": "Password updated"}), 200
+
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def simple() -> str:
     """ GET /
