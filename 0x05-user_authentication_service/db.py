@@ -9,6 +9,7 @@ from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 from user import User
 from user import Base
+from bcrypt import hashpw, gensalt
 
 
 class DB:
@@ -57,3 +58,9 @@ class DB:
         user.f = kwargs[f]
         self._session.add(user)
         self._session.commit()
+
+    def _hash_password(self, password: str) -> bytes:
+        """Hashes and salts the password"""
+        salt = gensalt()
+        hashed = hashpw(password.encode('utf8'), salt)
+        return hashed
