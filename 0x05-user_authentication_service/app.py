@@ -11,13 +11,14 @@ import os
 
 app = Flask(__name__)
 
+
 @app_views.route('/', methods=['GET'], strict_slashes=False)
 def simple() -> str:
     """ GET /
     Return:
       - Simple Message
     """
-    return flask.jsonify({"message": "Bienvenue"})
+    return flask.jsonify({"message": "Bienvenue"}), 200
 
 
 if __name__ == "__main__":
