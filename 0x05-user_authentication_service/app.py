@@ -3,7 +3,6 @@
 Route module for the API
 """
 from os import getenv
-from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
 import os
@@ -12,7 +11,7 @@ import os
 app = Flask(__name__)
 
 
-@route('/', methods=['GET'], strict_slashes=False)
+@app.route('/', methods=['GET'], strict_slashes=False)
 def simple() -> str:
     """ GET /
     Return:
