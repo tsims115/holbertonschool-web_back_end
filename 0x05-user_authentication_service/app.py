@@ -80,8 +80,7 @@ def get_reset_password_token():
         token = AUTH.get_reset_password_token(email)
     except ValueError:
         abort(403)
-    if token is not None:
-        return jsonify({"email": email, "reset_token": token})
+    return jsonify({"email": email, "reset_token": token})
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
