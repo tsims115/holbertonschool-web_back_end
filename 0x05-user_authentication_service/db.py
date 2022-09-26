@@ -14,8 +14,6 @@ from user import Base
 class DB:
     """DB class
     """
-
-
     def __init__(self) -> None:
         """Initialize a new DB instance
         """
@@ -47,6 +45,6 @@ class DB:
         f = list(kwargs.keys())[0]
         if f not in dir(User):
             raise InvalidRequestError()
-        if user == None:
+        if user is None:
             raise NoResultFound()
-        return use
+        return user
