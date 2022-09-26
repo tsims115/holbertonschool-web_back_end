@@ -5,5 +5,5 @@ from bcrypt import hashpw, gensalt
 
 
 def _hash_password(password: str) -> bytes:
-        """Hashes and salts the password"""
-        return hashpw(password.encode('utf8'), gensalt())
+    """Hashes and salts the password"""
+    return hashpw(password.encode('utf8'), gensalt())
