@@ -51,17 +51,14 @@ def logout():
     Return:
       - Json message verifying status
     """
-    cookie = request.headers.get('Cookie')
+    cookie = request.cookies.get('session_id')
     if cookie is not None:
-        cookie = cookie.split("=")
-        if cookie[0] == "session_id":
-            session_id = cookie[1]
-        user = AUTH.get_user_from_session_id(session_id)
+        user = AUTH.get_user_from_session_id(cookie)
         if user is None:
-            return 403
+            abort(403)
         AUTH.destroy_session(session_id)
-        return redirect('/', code=302)
-    return 403
+        return redirect('/')
+    abort(403)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
