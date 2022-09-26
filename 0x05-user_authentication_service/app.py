@@ -28,6 +28,7 @@ def users():
     m = {"email": email, "message": "user created"}
     return jsonify(m), 200
 
+
 @app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login():
     """ POST /
