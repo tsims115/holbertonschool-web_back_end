@@ -60,7 +60,7 @@ def logout():
         if user is None:
             return 403
         AUTH.destroy_session(session_id)
-        return redirect('/', code=32)
+        return redirect(url_for('simple'), code=32)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
