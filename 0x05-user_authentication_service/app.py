@@ -12,7 +12,7 @@ import os
 app = Flask(__name__)
 
 
-@app_views.route('/', methods=['GET'], strict_slashes=False)
+@route('/', methods=['GET'], strict_slashes=False)
 def simple() -> str:
     """ GET /
     Return:
