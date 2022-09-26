@@ -53,7 +53,7 @@ def logout():
     """
     cookie = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(cookie)
-    if user is None || cookie is None:
+    if user is None or cookie is None:
         abort(403)
     AUTH.destroy_session(session_id)
     return redirect('/')
