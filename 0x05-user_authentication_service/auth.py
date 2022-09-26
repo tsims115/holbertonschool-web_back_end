@@ -83,3 +83,14 @@ class Auth:
             raise ValueError
         user.reset_token = str(uuid4())
         return user.reset_token
+
+    def update_password(self, reset_token: str, password: str) -> None:
+        """Updates the current password"""
+        try:
+            user = self._db.find_user_by(reset_token=reset_token)
+        except NoResultFound:
+            raise ValueError
+        password = _hash_password(password)
+        user.hashed_password = password
+        user.reset_token = None
+        return None
