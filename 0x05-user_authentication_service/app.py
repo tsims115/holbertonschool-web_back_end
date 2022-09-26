@@ -45,6 +45,24 @@ def login():
     abort(401)
 
 
+@app.route('/sessions', methods=['DELETE'], strict_slashes=False)
+def logout():
+    """ DELETE /
+    Return:
+      - Json message verifying status
+    """
+    cookie = request.headers.get('Cookie')
+    if cookie is not None:
+        cookie = cookie.split("=")
+        if cookie[0] == "session_id":
+            session_id = cookie[1]
+        user = AUTH.get_user_from_session_id(session_id)
+        if user is None:
+            return 403
+        AUTH.destroy_session(session_id)
+        return redirect('/')
+
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def simple() -> str:
     """ GET /
