@@ -19,8 +19,8 @@ def users():
     Return:
       - Json message verifying status
     """
-    email = list(request.form)[0]
-    password = list(request.form)[1]
+    email = request.form[list(request.form)[0]]
+    password = request.form[list(request.form)[1]]
     try:
         AUTH.register_user(email, password)
     except ValueError:
@@ -34,8 +34,8 @@ def login():
     Return:
       - Json message verifying status
     """
-    email = list(request.form)[0]
-    password = list(request.form)[1]
+    email = request.form[list(request.form)[0]]
+    password = request.form[list(request.form)[1]]
     if AUTH.valid_login(email, password):
         sid = AUTH.create_session(email)
         resp = make_response()
