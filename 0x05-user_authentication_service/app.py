@@ -58,7 +58,6 @@ def logout():
             abort(403)
         AUTH.destroy_session(session_id)
         return redirect('/')
-    abort(403)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
