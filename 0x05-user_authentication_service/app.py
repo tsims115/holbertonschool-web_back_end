@@ -60,7 +60,7 @@ def logout():
         if user is None:
             return 403
         AUTH.destroy_session(session_id)
-        return redirect('/', code=32)
+        return redirect('/', code=302)
     return 403
 
 
