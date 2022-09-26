@@ -41,10 +41,19 @@ class DB:
     def find_user_by(self, **kwargs) -> User:
         """Finds the user"""
         user = self._session.query(User).filter_by(**kwargs).first()
-        k = kwargs.keys()
         f = list(kwargs.keys())[0]
         if f not in dir(User):
             raise InvalidRequestError()
         if user is None:
             raise NoResultFound()
         return user
+
+    def update_user(self, user_id, **kwargs) -> None:
+        """Updates the User"""
+        f = list(kwargs.keys())[0]
+        if f not in dir(User):
+            raise ValueError
+        user = self.find_user_by(id=str(user_id))
+        user.f = kwargs[f]
+        self._session.add(user)
+        self._session.commit()
