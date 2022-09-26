@@ -59,6 +59,19 @@ def logout():
     return redirect('/')
 
 
+@app.route('/profile', methods=['GET'], strict_slashes=False)
+def profile():
+    """ GET /
+    Return:
+      - Json message verifying status
+    """
+    cookie = request.cookies.get('session_id')
+    user = AUTH.get_user_from_session_id(cookie)
+    if user is None:
+        abort(403)
+    return jsonify({"email": user.email}), 200
+
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def simple() -> str:
     """ GET /
