@@ -5,7 +5,6 @@ import inspect
 import pep8
 import unittest
 from utils import access_nested_map, get_json, memoize
-from typing import Mapping, Dict, Sequence, Any
 from parameterized import parameterized
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -16,10 +15,6 @@ class TestAccessNestedMap(unittest.TestCase):
         ({'a': {'b': 2}}, ('a'), {'b': 2}),
         ({'a': {'b': 2}}, ('a', 'b'), 2)
     ])
-     def test_access_nested_map(self,
-                               nested_map: Mapping,
-                               path: Sequence,
-                               expect: Any
-                               ):
+    def test_access_nested_map(self, nested_map, path, expect):
         """Tests the access nested map function"""
-        self.assertEqual(access_nested_map(nested_map, path), expected)
+        self.assertEqual(access_nested_map(nested_map, path), expect)
