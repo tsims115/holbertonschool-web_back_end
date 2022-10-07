@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Test the utilities
 """
+import inspect
+import pep8
 import unittest
 from utils import access_nested_map
 from typing import Mapping, Dict, Sequence, Any, Callable
