@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Test the utilities
 """
-import pep8
 import unittest
-from utils import access_nested_map
-from typing import Mapping, Dict, Sequence, Any, Callable
+from utils import access_nested_map, get_json, memoize
+from unittest.mock import patch
 from parameterized import parameterized
+from typing import Mapping, Dict, Sequence, Any, Callable
 
 class TestAccessNestedMap(unittest.TestCase):
     """testing class"""
