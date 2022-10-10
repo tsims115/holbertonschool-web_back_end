@@ -7,6 +7,7 @@ from utils import access_nested_map, get_json, memoize
 from typing import Mapping, Dict, Sequence, Any, Callable
 from parameterized import parameterized
 
+
 class TestAccessNestedMap(unittest.TestCase):
     """testing class"""
 
@@ -32,6 +33,7 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError):
             self.assertEqual(access_nested_map(nested_map, path), expect)
 
+
 class TestGetJson(unittest.TestCase):
     """testing class"""
 
@@ -44,6 +46,7 @@ class TestGetJson(unittest.TestCase):
         """test get json"""
         test.return_value.json.return_value = payload
         self.assertEqual(get_json(test_url), payload)
+
 
 class TestMemoize(unittest.TestCase):
     """testing class"""
@@ -61,5 +64,6 @@ class TestMemoize(unittest.TestCase):
 
         with patch.object(TestClass, 'a_method') as m:
             test_class = TestClass()
-            test_class.a_property; test_class.a_property
+            test_class.a_property
+            test_class.a_property
             m.asset_called_once()
