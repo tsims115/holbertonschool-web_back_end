@@ -2,7 +2,8 @@
 """Test the utilities
 """
 import unittest
-from utils import access_nested_map
+from unittest.mock import patch
+from utils import access_nested_map, get_json
 from typing import Mapping, Dict, Sequence, Any, Callable
 from parameterized import parameterized
 
@@ -30,3 +31,17 @@ class TestAccessNestedMap(unittest.TestCase):
         """Test for exception"""
         with self.assertRaises(KeyError):
             self.assertEqual(access_nested_map(nested_map, path), expect)
+
+class TestGetJson(unittest.TestCase):
+    """testing class"""
+
+    @parameterized.expand([
+        ("http://example.com", {"payload": True}),
+        ("http://holberton.io", {"payload": False})
+    ])
+    @patch('requests.get')
+    def test_get_json(self, test_url, payload, test):
+        """test get json"""
+        test.return_value.json.return_value = payload
+        self.assertEqual(get_json(test_url), payload)
+        
