@@ -47,8 +47,8 @@ def get_locale():
         if loc in Config.LANGUAGES:
             return loc
     if g.user:
-        if g.user.locale is not None:
-            return g.user.locale
+        if "locale" in g.user.keys():
+            return g.user['locale']
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
