@@ -34,7 +34,9 @@ def get_user():
     user_id = request.args.get('login_as')
     if user_id is None:
         return None
-    return users[int(user_id)]
+    if int(user_id) in users.keys():
+        return users[int(user_id)]
+    return None
 
 
 @babel.localeselector
@@ -45,6 +47,7 @@ def get_locale():
         if loc in Config.LANGUAGES:
             return loc
     return request.accept_languages.best_match(Config.LANGUAGES)
+
 
 @app.before_request
 def before_request():
