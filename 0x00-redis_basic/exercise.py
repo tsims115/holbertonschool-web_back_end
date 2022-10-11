@@ -15,5 +15,5 @@ class Cache:
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """generates key"""
         uid = uuid4()
-        r.set(uid, data)
+        self._redis.set(uid, data)
         return uid
