@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ _('home_title') }}</title>
+  </head>
+  <body>
+    <h1>{{ _('home_header') }}</h1>
+    {% user = getattr(g, 'user', None) %}
+    {% if user is None %}
+      <p>{{ _('not_logged_in') }}</p>
+    {% enif %}
+      <p>{{ _('logged_in_as') }}</p>
+  </body>
+</html>
