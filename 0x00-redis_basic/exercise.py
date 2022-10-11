@@ -18,7 +18,7 @@ class Cache:
         self._redis.set(uid, data)
         return uid
 
-    def get(self, key: str, fn: Callable):
+    def get(self, key: str, fn: Callable = None):
         """gets data from with given key"""
         print(self._redis.get(key))
         if fn is not None:
