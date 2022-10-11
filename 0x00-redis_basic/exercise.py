@@ -23,3 +23,11 @@ class Cache:
         if fn is not None:
             return fn(self._redis.get(key))
         return self._redis.get(key)
+
+    def get_str(self):
+        """get string method"""
+        return self._redis.get(key).decode("utf-8")
+
+    def get_int(self):
+        """get int method"""
+        return int(self._redis.get(key))
