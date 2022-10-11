@@ -6,7 +6,7 @@ from flask_babel import Babel, _
 
 app = Flask(__name__)
 babel = Babel(app)
-
+_.__doc__ = "setting parmeter values for html"
 
 
 class Config:
