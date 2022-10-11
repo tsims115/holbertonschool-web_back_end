@@ -31,7 +31,10 @@ _('not_logged_in')
 
 def get_user():
     """Gets the current user"""
-    user = getattr(g, 'user', None)
+    user_id = request.args.get('login_as')
+    if user_id is None:
+        return None
+    return users[int(user_id)]
 
 
 @babel.localeselector
