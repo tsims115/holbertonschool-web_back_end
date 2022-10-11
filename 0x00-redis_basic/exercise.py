@@ -20,7 +20,6 @@ class Cache:
 
     def get(self, key: str, fn: Callable = None):
         """gets data from with given key"""
-        print(self._redis.get(key))
         if fn is not None:
             return fn(self._redis.get(key))
         return self._redis.get(key)
