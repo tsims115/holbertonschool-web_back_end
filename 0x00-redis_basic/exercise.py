@@ -13,7 +13,7 @@ def replay(fn: Callable):
     outputs = redd.lrange("{}:outputs".format(name), 0, -1)
     print(f"{name} was called {len(inputs)} times:")
     for i, o in zip(inputs, outputs):
-        print(f'{name}(*({i},)) -> {o}')
+        print(f'{name}(*({i.decode('utf-8')},)) -> {o}')
 
 def count_calls(method: Callable) -> Callable:
     """Counts the number of method calls"""
