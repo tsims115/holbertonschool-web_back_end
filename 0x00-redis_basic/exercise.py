@@ -10,7 +10,7 @@ def replay(fn: Callable):
     redd = redis.Redis()
     name = fn.__qualname__
     inputs = redd.lrange("{}:inputs".format(name), 0, -1)
-    outputs = redd._redis.lrange("{}:outputs".format(name), 0, -1)
+    outputs = redd.lrange("{}:outputs".format(name), 0, -1)
     print(f"{name} was called {len(inputs)} times:")
     for i, o in zip(inputs, outputs):
         print(f'{name}(*({name},)) -> {o}')
