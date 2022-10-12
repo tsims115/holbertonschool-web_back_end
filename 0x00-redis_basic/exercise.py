@@ -8,7 +8,7 @@ from functools import wraps
 def replay(fn: Callable):
     """display history of calls for a particular function"""
     redd = redis.Redis()
-    name = cache.store.__qualname__
+    name = fn.__qualname__
     inputs = redd.lrange("{}:inputs".format(name), 0, -1)
     outputs = redd._redis.lrange("{}:outputs".format(name), 0, -1)
     print(f"{name} was called {len(inputs)} times:")
