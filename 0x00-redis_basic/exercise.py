@@ -5,7 +5,7 @@ from uuid import uuid4
 from typing import Union, Callable
 from functools import wraps
 
-def replay(fn -> Callable):
+def replay(fn: Callable):
     """display history of calls for a particular function"""
     redd = redis.Redis()
     name = cache.store.__qualname__
