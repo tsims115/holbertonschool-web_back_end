@@ -7,10 +7,10 @@ from functools import wraps
 
 def count_calls(method: Callable) -> Callable:
     """Counts the number of method calls"""
-    key = method.__qualname__
+    k = method.__qualname__
     @wraps(method)
     def wrapper(self, *args, **kwargs):
-        self._redis.incr(key)
+        self._redis.incr(k)
         return method(self, *args, **kwargs)
     return wrapper
 
@@ -22,13 +22,13 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """generates key"""
         uid = str(uuid4())
         self._redis.set(uid, data)
         return uid
 
-    @count_calls
     def get(self, key: str, fn: Callable = None):
         """gets data from with given key"""
         if fn is not None:
