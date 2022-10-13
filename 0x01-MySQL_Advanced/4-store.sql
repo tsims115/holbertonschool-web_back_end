@@ -1,3 +1,4 @@
+-- Creates a trigger that updates the table items
 CREATE TRIGGER ins_sum BEFORE INSERT ON orders
 FOR EACH ROW
 BEGIN
