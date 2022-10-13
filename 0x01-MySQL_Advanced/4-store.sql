@@ -7,5 +7,4 @@ BEGIN
 UPDATE items
 SET quantity = quantity - NEW.number
 WHERE NEW.item_name = name
-END $$
-DELIMITER;
+END $$;
