@@ -3,7 +3,7 @@ DELIMITER $$
 CREATE TRIGGER v_email AFTER UPDATE of email ON users
 FOR EACH ROW
 BEGIN
-IF users.email != OLD.email
+IF NEW.email != OLD.email
 THEN
     UPDATE users
     SET valid_email = 0
