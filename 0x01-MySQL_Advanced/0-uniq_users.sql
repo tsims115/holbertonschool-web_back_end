@@ -1,7 +1,7 @@
 -- creates table of user with id, email, name
 CREATE TABLE users (
-    id int NOT NULL AUTO_INCREMENT,
-    email varchar(250) UNIQUE NOT NULL,
-    name varchar(250),
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(250) UNIQUE NOT NULL,
+    name VARCHAR(250),
     PRIMARY KEY (id)
 ) IF NOT EXISTS;
