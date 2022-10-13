@@ -1,6 +1,5 @@
 -- Creates a trigger that updates the table items
-DELIMITER 
-$$
+DELIMITER $$
 CREATE TRIGGER ins_sum AFTER INSERT ON orders
 FOR EACH ROW
 BEGIN
