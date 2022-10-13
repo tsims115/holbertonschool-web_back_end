@@ -3,8 +3,8 @@ DELIMITER $$
 CREATE TRIGGER v_email AFTER UPDATE of email ON users
 FOR EACH ROW
 BEGIN
-if users.email = OLD.email
-then
+IF users.email = OLD.email
+THEN
     UPDATE users
     SET valid_email = 1
     WHERE email = NEW.email
