@@ -1,7 +1,8 @@
 -- Creates a trigger that updates the table items
 CREATE TRIGGER ins_sum BEFORE INSERT ON orders
+FOR EACH ROW
 BEGIN
 UPDATE items
-SET quantity = quantity - 1
+SET quantity = quantity - NEW.number
 WHERE NEW.item_name = name
 ;
