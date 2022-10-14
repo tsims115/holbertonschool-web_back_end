@@ -12,6 +12,6 @@ IF NOT EXISTS (SELECT * FROM projects WHERE name = project_name) THEN
     VALUES (project_name);
 END IF;
 SELECT id INTO pid FROM projects WHERE name = project_name;
-INSERT INTO corrections (user_id, pid, score)
+INSERT INTO corrections (user_id, project_id, score)
 VALUES (user_id, pid, score);
 END $$;
