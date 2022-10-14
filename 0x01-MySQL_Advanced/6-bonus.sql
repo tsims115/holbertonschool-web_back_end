@@ -6,7 +6,7 @@ CREATE PROCEDURE AddBonus (
     in score FLOAT
     )
 BEGIN
-SET pid := (SELECT id FROM projects WHERE name = project_name);
+SET @pid := (SELECT id FROM projects WHERE name = project_name);
 IF @pid IS NULL THEN
     INSERT INTO projects (name)
     VALUES (project_name);
