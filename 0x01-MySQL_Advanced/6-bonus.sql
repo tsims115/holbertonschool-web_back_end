@@ -2,12 +2,12 @@
 DELIMITER $$
 DROP PROCEDURE IF EXISTS AddBonus;
 CREATE PROCEDURE IF NOT EXISTS AddBonus (
-    in user_id int,
+    in user_id INT,
     in project_name VARCHAR(250),
-    in score float
+    in score FLOAT
     )
 BEGIN
-DECLARE pid int;
+DECLARE pid INT;
 IF NOT EXISTS (SELECT id FROM projects WHERE name = project_name) THEN
     INSERT INTO projects (name)
     VALUES (project_name);
