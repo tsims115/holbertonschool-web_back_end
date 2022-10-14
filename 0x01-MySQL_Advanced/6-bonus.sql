@@ -1,7 +1,6 @@
 -- creates a stored procedure
 DELIMITER $$
-DROP PROCEDURE IF EXISTS AddBonus;
-CREATE PROCEDURE IF NOT EXISTS AddBonus (
+CREATE PROCEDURE AddBonus (
     in user_id INT,
     in project_name VARCHAR(250),
     in score FLOAT
