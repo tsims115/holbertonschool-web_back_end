@@ -7,7 +7,7 @@ CREATE PROCEDURE AddBonus (
     )
 BEGIN
 DECLARE pid INT;
-IF NOT EXISTS (SELECT id FROM projects WHERE name = project_name) THEN
+IF NOT EXISTS (SELECT * FROM projects WHERE name = project_name) THEN
     INSERT INTO projects (name)
     VALUES (project_name);
 END IF;
