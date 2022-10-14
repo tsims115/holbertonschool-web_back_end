@@ -6,16 +6,10 @@ CREATE PROCEDURE AddBonus (
     in score float
     )
 BEGIN
-SET @pid = (SELECT projects.id WHERE projects.name = project_name);
-IF NOT EXISTS @pid
-    INSERT INTO corrections (user_id, project_id, score)
-    VALUES (user_id, @pid, score);
-;
+IF NOT EXISTS (SELECT id FROM projects WHERE name = project_name) THEN
+    INSERT INTO projects (name)
+    VALUES (project_name);
 ENDIF;
-IF EXISTS @pid
-    UPDATE corrections
-    SET corrections.score = score
-    WHERE corrections.user_id = user_id
-;
-ENDIF;
+INSERT INTO corrections (user_id, project_id, score)
+VALUES (user_id, project_name, score);
 END $$;
