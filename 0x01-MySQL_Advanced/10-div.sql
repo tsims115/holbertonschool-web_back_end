@@ -1,4 +1,5 @@
 -- Creates funstion SafeDiv that divides first by second number
+DROP FUNCTION IF EXISTS SafeDiv;
 DELIMITER $$
 CREATE FUNCTION SafeDiv (n1 int, n2 int)
 RETURNS int;
