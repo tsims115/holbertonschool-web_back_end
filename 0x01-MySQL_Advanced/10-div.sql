@@ -6,5 +6,5 @@ BEGIN
     IF n2 = 0 THEN
     RETURN 0;
     END IF;
-RETURN n1 / n2
+RETURN n1 / n2;
 END $$;
