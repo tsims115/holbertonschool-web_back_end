@@ -1,3 +1,2 @@
 // deletes all document with name="Holberton school" in school
-db.school.remove({name: "Holberton"},
-                  {justOne: false});
+db.school.deleteMany({name: "Holberton"});
