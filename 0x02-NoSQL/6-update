@@ -1,0 +1,3 @@
+// adds new attribute to a document in school
+db.school.update({"name": "Holberton school"},
+                 {'$set' : {'create_time' : datetime(...)}});
