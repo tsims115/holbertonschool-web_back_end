@@ -3,8 +3,8 @@
 
 
 if __name__ == "__main__":
+    """NGinx log stats"""
     from pymongo import MongoClient
-
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx_collection = client.logs.nginx
     logs = nginx_collection.find()
