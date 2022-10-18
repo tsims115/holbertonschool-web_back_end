@@ -8,12 +8,7 @@ if __name__ == "__main__":
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx_collection = client.logs.nginx
     logs = nginx_collection.find()
-    g = 0
-    sc = 0
-    po = 0
-    pu = 0
-    pa = 0
-    de = 0
+    g, sc, po, pu, pa, de, total = 0, 0, 0, 0, 0, 0, 0
     for l in logs:
         if g == 0:
             if l['method'] == 'GET':
@@ -28,7 +23,8 @@ if __name__ == "__main__":
                 pa += 1
             if l['method'] == 'DELETE':
                 de += 1
-
+        total += 1
+    print(str(total) + " logs")
     print("Methods:")
     print("\tmethod GET: " + str(g))
     print("\tmethod POST: " + str(po))
