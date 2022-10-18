@@ -16,18 +16,18 @@ if __name__ == "__main__":
     de = 0
     for l in logs:
         if g == 0:
-        if l['method'] == 'GET':
-            g += 1
-            if l['path'] == '/status':
-                sc += 1
-        if l['method'] == 'POST':
-            po += 1
-        if l['method'] == 'PUT':
-            pu += 1
-        if l['method'] == 'PATCH':
-            pa += 1
-        if l['method'] == 'DELETE':
-            de += 1
+            if l['method'] == 'GET':
+                g += 1
+                if l['path'] == '/status':
+                    sc += 1
+            if l['method'] == 'POST':
+                po += 1
+            if l['method'] == 'PUT':
+                pu += 1
+            if l['method'] == 'PATCH':
+                pa += 1
+            if l['method'] == 'DELETE':
+                de += 1
 
     print("Methods:")
     print("\tmethod GET: " + str(g))
