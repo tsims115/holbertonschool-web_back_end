@@ -2,8 +2,8 @@ const fs = require('fs');
 
 module.exports = function countStudents(path) {
   let data;
-  try { 
-    data = fs.readFileSync(path, {encoding:'utf8', flag:'r'});
+  try {
+    data = fs.readFileSync(path, { encoding:'utf8', flag:'r' });
   } catch (error) {
     throw Error('Cannot load the database');
   }
@@ -14,9 +14,9 @@ module.exports = function countStudents(path) {
     data.pop();
   }
   console.log(`Number of students: ${data.length - 1}`);
-  for (i = 1; i < data.length; i++) {
+  for (i = 1; i < data.length; i += 1) {
     data[i] = data[i].split(',')
-    let fieldName = data[i][3];
+    const fieldName = data[i][3];
     if (fields[fieldName] === undefined) {
       fields[fieldName] = [data[i][0]];
     } else {
