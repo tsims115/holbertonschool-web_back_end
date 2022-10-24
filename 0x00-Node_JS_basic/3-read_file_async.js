@@ -7,7 +7,6 @@ module.exports = function countStudents(path) {
       if (!data) {
         reject(Error('Cannot load the database'));
       } else {
-        resolve();
         let i;
         const fields = {};
         const data1 = data.split('\n');
@@ -26,6 +25,7 @@ module.exports = function countStudents(path) {
         }
         console.log(`Number of students in CS: ${fields.CS.length}. List: ${fields.CS.join(', ')}`);
         console.log(`Number of students in SWE: ${fields.SWE.length}. List: ${fields.SWE.join(', ')}`);
+        resolve('This is resolved');
       }
     });
   });
