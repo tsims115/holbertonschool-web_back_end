@@ -3,5 +3,5 @@ const app = express();
 const port = 1245;
 
 app.listen(port, () => {
-  console.log(`Hello Holberton School!`)
+  res.send('Hello Holberton School!');
 })
