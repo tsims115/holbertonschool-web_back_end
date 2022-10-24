@@ -10,7 +10,8 @@ const app = http.createServer(async (req, res) => {
   if (req.url === '/students') {
     res.write('This is the list of our students');
     try {
-      let sList = await countStudents(process.argv[2]);
+      const path = process.argv[2];
+      let sList = await countStudents(path);
       sList = sList.join('\n');
       res.end(sList);
     } catch (error) {
