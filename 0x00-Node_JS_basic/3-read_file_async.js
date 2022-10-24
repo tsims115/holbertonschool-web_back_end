@@ -25,8 +25,8 @@ module.exports = function countStudents(path) {
         }
         console.log(`Number of students in CS: ${fields.CS.length}. List: ${fields.CS.join(', ')}`);
         console.log(`Number of students in SWE: ${fields.SWE.length}. List: ${fields.SWE.join(', ')}`);
-        resolve(['resolved']);
       }
+      resolve(['resolved']);
     });
   });
 };
