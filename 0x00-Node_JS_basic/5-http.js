@@ -7,7 +7,7 @@ const app = http.createServer(async (req, res) => {
     res.write('Hello Holberton School!');
   }
   if (req.url === '/students') {
-    res.write('This is the list of our students');
+    res.write('This is the list of our students\n');
     try {
       const path = process.argv[2];
       let sList = await countStudents(path);
