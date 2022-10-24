@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = function countStudents(path) {
   let data;
   try {
-    data = fs.readFileSync(path, {encoding: 'utf8', flag: 'r'});
+    data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' });
   } catch (error) {
     throw Error('Cannot load the database');
   }
