@@ -2,7 +2,7 @@ const countStudents = require('./3-read_file_async');
 const http = require('http');
 const { count } = require('console');
 
-const app = http.createServer((req, res) => {
+const app = http.createServer(async (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
   if (req.url === '/') {
     res.write('Hello Holberton School!');
