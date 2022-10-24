@@ -9,7 +9,7 @@ module.exports = function countStudents(path) {
   }
   let i;
   const fields = {};
-  data = data.split('\r\n');
+  data = data.split('\n');
   if (data[data.length - 1] === '') {
     data.pop();
   }
