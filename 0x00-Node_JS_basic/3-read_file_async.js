@@ -5,7 +5,7 @@ module.exports = function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
-        throw Error('Cannot load the database');
+        reject(Error('Cannot load the database'));
       }
       let i;
       const fields = {};
