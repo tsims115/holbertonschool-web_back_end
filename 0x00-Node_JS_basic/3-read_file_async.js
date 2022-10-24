@@ -9,23 +9,24 @@ module.exports = function countStudents(path) {
       }
       let i;
       const fields = {};
-      data = data.split('\n');
-      if (data[data.length - 1] === '') {
-        data.pop();
+      let data1
+      data1 = data.split('\n');
+      if (data1[data.length - 1] === '') {
+        data1.pop();
       }
-      console.log(`Number of students: ${data.length - 1}`);
+      console.log(`Number of students: ${data1.length - 1}`);
       for (i = 1; i < data.length; i += 1) {
-        data[i] = data[i].split(',');
+        data1[i] = data1[i].split(',');
         const fieldName = data[i][3];
         if (fields[fieldName] === undefined) {
-          fields[fieldName] = [data[i][0]];
+          fields[fieldName] = [data1[i][0]];
         } else {
-          fields[fieldName].push(data[i][0]);
+          fields[fieldName].push(data1[i][0]);
         }
       }
       console.log(`Number of students in CS: ${fields.CS.length}. List: ${fields.CS.join(', ')}`);
       console.log(`Number of students in SWE: ${fields.SWE.length}. List: ${fields.SWE.join(', ')}`);
-      resolve('resolved');
+      resolve();
     });
   });
 };
