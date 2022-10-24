@@ -1,15 +1,14 @@
+const fs = require('fs');
 module.exports = function countStudents(path) {
-  const fs = require('fs');
   let data;
   try {
-    data = fs.readFileSync(path,
-              {encoding:'utf8', flag:'r'});
+    data = fs.readFileSync(path, {encoding:'utf8', flag:'r'});
   } catch(error) {
     throw Error('Cannot load the database');
   }
   let i;
   let fields = {};
-  data = data.split('\n');
+  data = data.split('\r\n');
   if (data[data.length - 1] === '') {
     data.pop();
   }
@@ -25,7 +24,7 @@ module.exports = function countStudents(path) {
   }
   Object.keys(fields).forEach((k) => {
     let s_list = fields[k];
-    process.stdout.write(`Number of students in ${k}: ${s_list.length}.`);
-    process.stdout.write(` List: ${s_list.join(', ')}\n`);
+    process.stdout.write(`Number of students in ${k}: ${s_list.length}. `);
+    process.stdout.write(`List: ${s_list.join(', ')}\n`);
   });
 }
