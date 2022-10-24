@@ -6,4 +6,4 @@ const app = http.createServer((req, res) => {
   res.end();
 });
 app.listen(1245);
-export default app;
+module.exports = app;
