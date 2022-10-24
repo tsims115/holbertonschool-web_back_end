@@ -11,7 +11,7 @@ const app = http.createServer(async (req, res) => {
     let sList;
     try {
       const path = process.argv[2];
-      List = await countStudents(path);
+      sList = await countStudents(path);
       sList = sList.join('\n');
       res.end(String(sList));
     } catch (error) {
