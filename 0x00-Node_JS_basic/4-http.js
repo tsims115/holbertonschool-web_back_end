@@ -1,7 +1,8 @@
 const http = require('http');
 
 app = http.createServer(function (req, res) {
-  res.write('Hello Holberton School!'); //write a response to the client
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write('Hello Holberton School!');
   res.end(); //end the response
 }).listen(1245);
 
