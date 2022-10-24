@@ -14,7 +14,7 @@ const app = http.createServer(async (req, res) => {
       sList = sList.join('\n');
       res.end(sList);
     } catch (err) {
-      res.end(err);
+      res.end(err.message);
     }
   }
   res.end();
