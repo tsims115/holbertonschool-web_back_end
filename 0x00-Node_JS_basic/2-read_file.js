@@ -3,7 +3,7 @@ module.exports = function countStudents(path) {
   let data;
   try {
     data = fs.readFileSync(path, {encoding:'utf8', flag:'r'});
-  } catch(error) {
+  } catch (error) {
     throw Error('Cannot load the database');
   }
   let i;
@@ -23,8 +23,8 @@ module.exports = function countStudents(path) {
     }
   }
   Object.keys(fields).forEach((k) => {
-    let s_list = fields[k];
+    const s_list = fields[k];
     process.stdout.write(`Number of students in ${k}: ${s_list.length}. `);
     process.stdout.write(`List: ${s_list.join(', ')}\n`);
   });
-}
+};
