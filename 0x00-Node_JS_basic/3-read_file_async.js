@@ -13,11 +13,7 @@ module.exports = function countStudents(path) {
         if (data1[data1.length - 1] === '') {
           data1.pop();
         }
-        console.log(`Number of students: ${data1.length - 1}`);
-        for (i = 1; i < data1.length; i += 1) {
-          data1[i] = data1[i].split(',');
-          const fieldName = data1[i][3];
-          if (fields[fieldName] === undefined) {
+        console.log(`Ndefined) {
             fields[fieldName] = [data1[i][0]];
           } else {
             fields[fieldName].push(data1[i][0]);
