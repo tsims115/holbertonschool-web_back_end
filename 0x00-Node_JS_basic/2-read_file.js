@@ -25,7 +25,7 @@ module.exports = function countStudents(path) {
   }
   Object.keys(fields).forEach((k) => {
     let s_list = fields[k];
-    process.stdout.write(`Number of students in ${k}: ${s_list.length}`);
+    process.stdout.write(`Number of students in ${k}: ${s_list.length}.`);
     process.stdout.write(` List: ${s_list.join(', ')}\n`);
   });
 }
