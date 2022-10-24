@@ -9,15 +9,15 @@ module.exports = function countStudents(path) {
       }
       let i;
       const fields = {};
-      let data1
+      let data1;
       data1 = data.split('\n');
-      if (data1[data.length - 1] === '') {
+      if (data1[data1.length - 1] === '') {
         data1.pop();
       }
       console.log(`Number of students: ${data1.length - 1}`);
-      for (i = 1; i < data.length; i += 1) {
+      for (i = 1; i < data1.length; i += 1) {
         data1[i] = data1[i].split(',');
-        const fieldName = data[i][3];
+        const fieldName = data1[i][3];
         if (fields[fieldName] === undefined) {
           fields[fieldName] = [data1[i][0]];
         } else {
