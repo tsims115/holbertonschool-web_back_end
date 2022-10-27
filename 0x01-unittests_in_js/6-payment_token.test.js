@@ -1,13 +1,11 @@
-const chai = require("chai");
-const expect = chai.expect;
-chai.use(require("chai-as-promised"));
+const { expect } = require('chai');
 const getPaymentTokenFromAPI = require('./6-payment_token');
 
-describe('payment function', function () {
-  describe('getPaymentTokenFromAPI', function () {
-      it('getPaymentTokenFromAPI', function (done) {
-        expect(getPaymentTokenFromAPI(true)).to.eventually.equal({data: 'Successful response from the API' });
-        done();
-      });
+describe('getPaymentTokenFromAPI', () => {
+  it('returns the right success message', (done) => {
+    getPaymentTokenFromAPI(true).then(({ data }) => {
+      expect(data).to.equal('Successful response from the API');
+      done();
+    });
   });
 });
