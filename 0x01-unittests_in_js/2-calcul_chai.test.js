@@ -1,55 +1,83 @@
 const assert = require('assert');
-const calculateNumber = require('./1-calcul');
-const chai = require('chai');
-const expect = chai.expect;
+const calculateNumber = require('./2-calcul_chai');
+var chai = require('chai');
 
 describe('calculateNumber', function () {
-  describe('when type is SUM', function () {
-      it('SUM should return 5 from 1.5 and 2.5', function () {
-        expect(calculateNumber("SUM", 1.5, 2.5)).to.equal(5);
+    describe('SUM no Round', function () {
+      it('should return 4', function () {
+        chai.expect(calculateNumber('SUM', 1, 3)).to.equal(4);
       });
-      it('SUM should return 4 from 1.2 and 2.7', function () {
-        expect(calculateNumber("SUM", 1.2, 2.7)).to.equal(4);
+    });
+  
+    describe('SUM a round', function () {
+      it('should return 4', function () {
+        chai.expect(calculateNumber('SUM', 2.4, 2)).to.equal(4);
       });
-      it('SUM should return 139 from 100.5 and 38.2', function () {
-        expect(calculateNumber("SUM", 100.5, 38.2)).to.equal(139);
+    });
+  
+    describe('SUM b round ', function () {
+      it('should return 4', function () {
+        chai.expect(calculateNumber('SUM', 2, 2.4)).to.equal(4);
       });
-      it('SUM should return -4 from -1.2 and -3.5', function () {
-        expect(calculateNumber("SUM", -1.2, -3.5)).to.equal(-4);
+    });
+  
+    describe('SUM both round', function () {
+      it('should return 6', function () {
+        chai.expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6);
       });
-      it('SUM should return -7 from -108.2 and 100.7', function () {
-        expect(calculateNumber("SUM", -108.2, 100.7)).to.equal(-7);
+    });
+  
+    describe('SUBTRACT no round', function () {
+      it('should return 4', function () {
+        chai.expect(calculateNumber('SUBTRACT', 5, 1)).to.equal(4);
       });
+    });
+  
+    describe('SUBTRACT a round', function () {
+      it('should return -3', function () {
+        chai.expect(calculateNumber('SUBTRACT', 2, 4.5)).to.equal(-3);
+      });
+    });
+  
+    describe('SUBTRACT b round', function () {
+      it('should return 1', function () {
+        chai.expect(calculateNumber('SUBTRACT', 2.5, 2)).to.equal(1);
+      });
+    });
+  
+    describe('SUBTRACT both round', function () {
+      it('should return -4', function () {
+        chai.expect(calculateNumber('SUBTRACT', 1.4, 4.5)).to.equal(-4);
+      });
+    });
+  
+    describe('DIVIDE no round', function () {
+      it('should return 2', function () {
+        chai.expect(calculateNumber('DIVIDE', 8, 4)).to.equal(2);
+      });
+    });
+  
+    describe('DIVIDE a round', function () {
+      it('should return 5', function () {
+        chai.expect(calculateNumber('DIVIDE', 9.5, 2)).to.equal(5);
+      });
+    });
+  
+    describe('DIVIDE b round', function () {
+      it('should return 0.2', function () {
+        chai.expect(calculateNumber('DIVIDE', 2, 9.5)).to.equal(0.2);
+      });
+    });
+  
+    describe('DIVIDE both round', function () {
+      it('should return 0.2', function () {
+        chai.expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.equal(0.2);
+      });
+    });
+  
+    describe('DIVIDE Error', function () {
+      it('should return Error', function () {
+        chai.expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
+      });
+    });
   });
-  describe('SUBTRACT', function () {
-      it('SUBTRACT should return -209 from -108.2 and 100.7', function () {
-        expect(calculateNumber("SUBTRACT", -108.2, 100.7)).to.equal(-209);
-      });
-      it('SUBTRACT should return -4 from 5.3 and 8.9', function () {
-        expect(calculateNumber("SUBTRACT", 5.3, 8.9)).to.equal(-4);
-      });
-      it('SUBTRACT should return -78 from -108.5 and -30', function () {
-        expect(calculateNumber("SUBTRACT", -108.5, -30)).to.equal(-78);
-      });
-  });
-  describe('DIVIDE', function () {
-      it('DIVIDE should return 2 from 4.4 and 2.1', function () {
-        expect(calculateNumber("DIVIDE", 4.4, 2.1)).to.equal(2);
-      });
-      it('DIVIDE should return 15 from 29.5 and 1.7', function () {
-        expect(calculateNumber("DIVIDE", 29.5, 1.7)).to.equal(15);
-      });
-      it('DIVIDE should return 6.5 from 13 and 2', function () {
-        expect(calculateNumber("DIVIDE", 13, 2)).to.equal(6.5);
-      });
-      it('DIVIDE should return Error from 13 and 0', function () {
-        expect(calculateNumber("DIVIDE", 13, 0)).to.equal("Error");
-      });
-      it('DIVIDE should return 2.5 from 5 and 2', function () {
-        expect(calculateNumber("DIVIDE", 5, 2)).to.equal(2.5);
-      });
-      it('DIVIDE should return 0.2 from 1.4 and 4.5', function () {
-        expect(calculateNumber("DIVIDE", 1.4, 4.5)).to.equal(0.2);
-      });
-  });
-});
