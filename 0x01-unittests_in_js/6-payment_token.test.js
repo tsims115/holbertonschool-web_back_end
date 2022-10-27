@@ -7,6 +7,7 @@ describe('payment function', function () {
   describe('getPaymentTokenFromAPI', function () {
       it('getPaymentTokenFromAPI', function () {
         expect(getPaymentTokenFromAPI(true)).to.eventually.equal({data: 'Successful response from the API' });
+        done();
       });
   });
 });
