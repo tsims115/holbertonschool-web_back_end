@@ -1,8 +1,6 @@
 const assert = require('assert');
-const calculateNumber = require('./2-calcul');
+const calculateNumber = require('./2-calcul_chai');
 var chai = require('chai');
-
-
 
 describe('calculateNumber', function () {
   describe('when type is SUM', function () {
