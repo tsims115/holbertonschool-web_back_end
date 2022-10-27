@@ -1,52 +1,54 @@
 const assert = require('assert');
 const calculateNumber = require('./1-calcul');
+const chai = require('chai');
+const expect = chai.expect;
 describe('calculateNumber', function () {
   describe('SUM', function () {
       it('SUM should return 5 from 1.5 and 2.5', function () {
-        assert.equal(calculateNumber("SUM", 1.5, 2.5), 5);
+        expect(calculateNumber("SUM", 1.5, 2.5)).to.deep.equal(5);
       });
       it('SUM should return 4 from 1.2 and 2.7', function () {
-        assert.equal(calculateNumber("SUM", 1.2, 2.7), 4);
+        expect(calculateNumber("SUM", 1.2, 2.7)).to.deep.equal(4);
       });
       it('SUM should return 139 from 100.5 and 38.2', function () {
-        assert.equal(calculateNumber("SUM", 100.5, 38.2), 139);
+        expect(calculateNumber("SUM", 100.5, 38.2)).to.deep.equal(139);
       });
       it('SUM should return -4 from -1.2 and -3.5', function () {
-        assert.equal(calculateNumber("SUM", -1.2, -3.5), -4);
+        expect(calculateNumber("SUM", -1.2, -3.5)).to.deep.equal(-4);
       });
       it('SUM should return -7 from -108.2 and 100.7', function () {
-        assert.equal(calculateNumber("SUM", -108.2, 100.7), -7);
+        expect(calculateNumber("SUM", -108.2, 100.7)).to.deep.equal(-7);
       });
   });
   describe('SUBTRACT', function () {
       it('SUBTRACT should return -209 from -108.2 and 100.7', function () {
-        assert.equal(calculateNumber("SUBTRACT", -108.2, 100.7), -209);
+        expect(calculateNumber("SUBTRACT", -108.2, 100.7)).to.deep.equal(-209);
       });
       it('SUBTRACT should return -4 from 5.3 and 8.9', function () {
-        assert.equal(calculateNumber("SUBTRACT", 5.3, 8.9), -4);
+        expect(calculateNumber("SUBTRACT", 5.3, 8.9)).to.deep.equal(-4);
       });
       it('SUBTRACT should return -78 from -108.5 and -30', function () {
-        assert.equal(calculateNumber("SUBTRACT", -108.5, -30), -78);
+        expect(calculateNumber("SUBTRACT", -108.5, -30)).to.deep.equal(-78);
       });
   });
   describe('DIVIDE', function () {
       it('DIVIDE should return 2 from 4.4 and 2.1', function () {
-        assert.equal(calculateNumber("DIVIDE", 4.4, 2.1), 2);
+        expect(calculateNumber("DIVIDE", 4.4, 2.1)).to.deep.equal(2);
       });
       it('DIVIDE should return 15 from 29.5 and 1.7', function () {
-        assert.equal(calculateNumber("DIVIDE", 29.5, 1.7), 15);
+        expect(calculateNumber("DIVIDE", 29.5, 1.7)).to.deep.equal(15);
       });
       it('DIVIDE should return 6.5 from 13 and 2', function () {
-        assert.equal(calculateNumber("DIVIDE", 13, 2), 6.5);
+        expect(calculateNumber("DIVIDE", 13, 2)).to.deep.equal(6.5);
       });
       it('DIVIDE should return Error from 13 and 0', function () {
-        assert.equal(calculateNumber("DIVIDE", 13, 0), "Error");
+        expect(calculateNumber("DIVIDE", 13, 0)).to.deep.equal("Error");
       });
       it('DIVIDE should return 2.5 from 5 and 2', function () {
-        assert.equal(calculateNumber("DIVIDE", 5, 2), 2.5);
+        expect(calculateNumber("DIVIDE", 5, 2)).to.deep.equal(2.5);
       });
       it('DIVIDE should return 0.2 from 1.4 and 4.5', function () {
-        assert.equal(calculateNumber("DIVIDE", 1.4, 4.5), 0.2);
+        expect(calculateNumber("DIVIDE", 1.4, 4.5)).to.deep.equal(0.2);
       });
   });
 });
