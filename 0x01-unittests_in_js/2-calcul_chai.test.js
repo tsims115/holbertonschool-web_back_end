@@ -2,8 +2,9 @@ const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 const chai = require('chai');
 const expect = chai.expect;
+
 describe('calculateNumber', function () {
-  describe('SUM', function () {
+  describe('when type is SUM', function () {
       it('SUM should return 5 from 1.5 and 2.5', function () {
         expect(calculateNumber("SUM", 1.5, 2.5)).to.equal(5);
       });
