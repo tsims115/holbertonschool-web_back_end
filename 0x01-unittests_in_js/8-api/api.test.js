@@ -3,12 +3,13 @@ const request = require('request');
 const sinon = require('sinon');
 
 describe('Test the response from app', () => {
+  cspy = sinon.spy(console, "log");
   it('returns the right success message', () => {
     
     request('http://localhost:7865', function (error, response, body) {
-    console.log('statusCode:', response && response.statusCode);
-    console.log('body:', body);
+      expect(response.statusCode).to.equal(200);
+      expect(body).to.equal("Welcome to the payment system");
     });
-    expect(cspy.calledWith("API available on localhost port 7865")).to.be.true;
+
   });
 });
