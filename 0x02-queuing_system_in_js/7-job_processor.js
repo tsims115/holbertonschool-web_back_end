@@ -11,7 +11,6 @@ function sendNotification(phoneNumber, message, job, done) {
   }
 
   function next(i) {
-    let slide = phoneNumber;
     job.progress(i, 2);
     if (i == 1) done()
     else next(i + 1);
